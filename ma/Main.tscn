@@ -1,0 +1,156 @@
+[gd_scene load_steps=10 format=3 uid="uid://c80gc547bam3k"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_3i2vv"]
+[ext_resource type="Script" path="res://Main.gd" id="1_nr26b"]
+[ext_resource type="Texture2D" uid="uid://dd5qy8p5aqbvk" path="res://player.png" id="2_w8l70"]
+[ext_resource type="Script" path="res://StaticBody2D.gd" id="3_orf8e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fbsak"]
+size = Vector2(8, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_krg4g"]
+size = Vector2(8.5, 8.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fjkr6"]
+size = Vector2(20, 259)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d2t05"]
+size = Vector2(32, 320)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b38cr"]
+size = Vector2(20, 80)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_nr26b")
+metadata/_edit_horizontal_guides_ = []
+
+[node name="PlayerNode" type="Node2D" parent="."]
+position = Vector2(172, 157)
+
+[node name="Player" type="CharacterBody2D" parent="PlayerNode"]
+script = ExtResource("1_3i2vv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerNode/Player"]
+shape = SubResource("RectangleShape2D_fbsak")
+
+[node name="Sprite2D" type="Sprite2D" parent="PlayerNode/Player"]
+scale = Vector2(0.504211, 0.511519)
+texture = ExtResource("2_w8l70")
+
+[node name="Detect" type="Area2D" parent="PlayerNode/Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerNode/Player/Detect"]
+shape = SubResource("RectangleShape2D_krg4g")
+
+[node name="Resetter" type="Area2D" parent="PlayerNode/Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerNode/Player/Resetter"]
+position = Vector2(-317, 167)
+shape = SubResource("RectangleShape2D_fjkr6")
+
+[node name="WallNode" type="Node2D" parent="." groups=["Walls"]]
+position = Vector2(504, 301)
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallNode"]
+script = ExtResource("3_orf8e")
+
+[node name="UpperWallColl" type="CollisionShape2D" parent="WallNode/StaticBody2D"]
+position = Vector2(0, -200)
+shape = SubResource("RectangleShape2D_d2t05")
+
+[node name="UpperWallSprite2D" type="Sprite2D" parent="WallNode/StaticBody2D"]
+position = Vector2(0, -200)
+scale = Vector2(2, 20)
+texture = ExtResource("2_w8l70")
+
+[node name="LowerWallColl2" type="CollisionShape2D" parent="WallNode/StaticBody2D"]
+position = Vector2(0, 200)
+shape = SubResource("RectangleShape2D_d2t05")
+
+[node name="LowerWallSprite2D2" type="Sprite2D" parent="WallNode/StaticBody2D"]
+position = Vector2(0, 200)
+scale = Vector2(2, 20)
+texture = ExtResource("2_w8l70")
+
+[node name="PointArea" type="Area2D" parent="WallNode/StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallNode/StaticBody2D/PointArea"]
+shape = SubResource("RectangleShape2D_b38cr")
+
+[node name="WallNode3" type="Node2D" parent="." groups=["Walls"]]
+position = Vector2(732, 355)
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallNode3"]
+script = ExtResource("3_orf8e")
+
+[node name="UpperWallColl" type="CollisionShape2D" parent="WallNode3/StaticBody2D"]
+position = Vector2(0, -200)
+shape = SubResource("RectangleShape2D_d2t05")
+
+[node name="UpperWallSprite2D" type="Sprite2D" parent="WallNode3/StaticBody2D"]
+position = Vector2(0, -200)
+scale = Vector2(2, 20)
+texture = ExtResource("2_w8l70")
+
+[node name="LowerWallColl2" type="CollisionShape2D" parent="WallNode3/StaticBody2D"]
+position = Vector2(0, 200)
+shape = SubResource("RectangleShape2D_d2t05")
+
+[node name="LowerWallSprite2D2" type="Sprite2D" parent="WallNode3/StaticBody2D"]
+position = Vector2(0, 200)
+scale = Vector2(2, 20)
+texture = ExtResource("2_w8l70")
+
+[node name="PointArea" type="Area2D" parent="WallNode3/StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallNode3/StaticBody2D/PointArea"]
+shape = SubResource("RectangleShape2D_b38cr")
+
+[node name="WallNode2" type="Node2D" parent="." groups=["Walls"]]
+position = Vector2(974, 287)
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallNode2"]
+script = ExtResource("3_orf8e")
+
+[node name="UpperWallColl" type="CollisionShape2D" parent="WallNode2/StaticBody2D"]
+position = Vector2(0, -200)
+shape = SubResource("RectangleShape2D_d2t05")
+
+[node name="UpperWallSprite2D" type="Sprite2D" parent="WallNode2/StaticBody2D"]
+position = Vector2(0, -200)
+scale = Vector2(2, 20)
+texture = ExtResource("2_w8l70")
+
+[node name="LowerWallColl2" type="CollisionShape2D" parent="WallNode2/StaticBody2D"]
+position = Vector2(0, 200)
+shape = SubResource("RectangleShape2D_d2t05")
+
+[node name="LowerWallSprite2D2" type="Sprite2D" parent="WallNode2/StaticBody2D"]
+position = Vector2(0, 200)
+scale = Vector2(2, 20)
+texture = ExtResource("2_w8l70")
+
+[node name="PointArea" type="Area2D" parent="WallNode2/StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallNode2/StaticBody2D/PointArea"]
+shape = SubResource("RectangleShape2D_b38cr")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(170, 313)
+zoom = Vector2(2, 2)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 152.0
+offset_top = 163.0
+offset_right = 192.0
+offset_bottom = 203.0
+
+[connection signal="area_entered" from="PlayerNode/Player/Detect" to="PlayerNode/Player" method="_on_detect_area_entered"]
+[connection signal="body_entered" from="PlayerNode/Player/Detect" to="PlayerNode/Player" method="_on_detect_body_entered"]
+[connection signal="body_entered" from="PlayerNode/Player/Resetter" to="PlayerNode/Player" method="_on_resetter_body_entered"]
